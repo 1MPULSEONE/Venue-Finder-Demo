@@ -1,12 +1,8 @@
 import type { Venue } from '~/entities/Venue/model/types'
 import type { FilterState } from './types'
 
-/**
- * Фильтрует массив площадок согласно заданным фильтрам
- */
 export function filterVenues(venues: Venue[], filters: FilterState): Venue[] {
   return venues.filter((venue) => {
-    // Поиск по названию
     if (
       filters.searchTerm &&
       !venue.name.toLowerCase().includes(filters.searchTerm.toLowerCase())
@@ -14,12 +10,10 @@ export function filterVenues(venues: Venue[], filters: FilterState): Venue[] {
       return false
     }
 
-    // Фильтр по городу
     if (filters.city !== 'all' && venue.city !== filters.city) {
       return false
     }
 
-    // Фильтр по вместимости
     if (
       venue.capacity < filters.guestRange[0] ||
       venue.capacity > filters.guestRange[1]
@@ -27,7 +21,6 @@ export function filterVenues(venues: Venue[], filters: FilterState): Venue[] {
       return false
     }
 
-    // Фильтр по удобствам
     if (filters.amenities.length > 0) {
       const hasAllAmenities = filters.amenities.every((amenity) =>
         venue.amenities.includes(amenity)
@@ -41,9 +34,7 @@ export function filterVenues(venues: Venue[], filters: FilterState): Venue[] {
   })
 }
 
-/**
- * Сортирует массив площадок согласно выбранному критерию
- */
+
 export function sortVenues(
   venues: Venue[],
   sortBy: FilterState['sortBy']
@@ -64,9 +55,6 @@ export function sortVenues(
   }
 }
 
-/**
- * Применяет фильтры и сортировку к массиву площадок
- */
 export function applyFiltersAndSort(
   venues: Venue[],
   filters: FilterState
