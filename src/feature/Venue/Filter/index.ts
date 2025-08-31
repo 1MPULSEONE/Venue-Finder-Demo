@@ -1,5 +1,5 @@
 export { VenueFilters } from './ui/VenueFilters'
 export { useVenueFilters } from './model/hooks'
 export { useFilteredVenues, useFilterStats } from './model/optimizedHooks'
-export { type FilterState, DEFAULT_FILTERS } from './model/types'
+export { type FilterState } from './model/types'
 export { applyFiltersAndSort, filterVenues, sortVenues } from './model/utils'
