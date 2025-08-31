@@ -1,4 +1,9 @@
+import { Suspense } from 'react'
 import { FilteredVenueList, MOCK_VENUES } from '~/widget/Venue'
+
+function CatalogContent() {
+  return <FilteredVenueList venues={MOCK_VENUES} />
+}
 
 export default function CatalogPage() {
   return (
@@ -9,7 +14,9 @@ export default function CatalogPage() {
           Discover and book amazing venues for your next event or stay
         </p>
       </div>
-      <FilteredVenueList venues={MOCK_VENUES} />
+      <Suspense fallback={<div>Loading filters...</div>}>
+        <CatalogContent />
+      </Suspense>
     </main>
   )
 }
