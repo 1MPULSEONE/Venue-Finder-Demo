@@ -7,3 +7,6 @@ export type VenueListProps = {
 export type VenueListItemProps = {
   venue: Venue
 }
+export type FilteredVenueListProps = {
+  venues: Venue[]
+}

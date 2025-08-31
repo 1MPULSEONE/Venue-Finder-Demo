@@ -82,6 +82,15 @@
     scrollbar-gutter: stable;
   }
 
+  body[data-scroll-locked] {
+    margin-right: 0 !important;
+  }
+
+  html body[data-scroll-locked] {
+    --removed-body-scroll-bar-size: 0 !important;
+    margin-right: 0 !important;
+  }
+
   body {
     @apply bg-background text-foreground;
   }
@@ -90,7 +99,6 @@
     font-family: var(--font-geist-sans), system-ui, sans-serif;
   }
 
-  /* Темные стили для скроллбара */
   ::-webkit-scrollbar {
     width: 8px;
   }

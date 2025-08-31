@@ -1,6 +1,6 @@
 'use client'
-
 import type { VenueListProps } from '../model/types'
+import { NotFoundFallback } from './NotFoundFallback'
 import { VenueListItem } from './VenueListItem'
 
 export const VenueList: React.FC<VenueListProps> = ({ venues }) => {
@@ -11,8 +11,6 @@ export const VenueList: React.FC<VenueListProps> = ({ venues }) => {
       ))}
     </div>
   ) : (
-    <div className='flex items-center justify-center h-full'>
-      <p className='text-muted-foreground'>No venues found</p>
-    </div>
+    <NotFoundFallback />
   )
 }

@@ -3,6 +3,7 @@ import '~/shared/styles/globals.css'
 import type { Metadata } from 'next'
 import { Geist } from 'next/font/google'
 import { JotaiProvider } from '~/shared/lib/providers/JotaiProvider'
+import { NuqsProvider } from '~/shared/lib/providers/NuqsProvider'
 
 export const metadata: Metadata = {
   title: 'Create T3 App',
@@ -21,7 +22,9 @@ export default function RootLayout({
   return (
     <html lang='en' className={`${geist.variable}`}>
       <body>
-        <JotaiProvider>{children}</JotaiProvider>
+        <NuqsProvider>
+          <JotaiProvider>{children}</JotaiProvider>
+        </NuqsProvider>
       </body>
     </html>
   )
